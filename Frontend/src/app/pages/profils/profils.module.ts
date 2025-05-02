@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { ProfilsRoutingModule } from './profils-routing.module';
 import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
-import { ProfilParentComponent } from './profil-parent/profil-parent.component';
-import { ProfilBabysitterComponent } from './profil-babysitter/profil-babysitter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbAccordionModule, NgbCollapseModule, NgbNavModule, NgbPopoverModule, NgbProgressbarModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfilClientComponent } from './profil-client/profil-client.component';
+import { ProfilCommercialComponent } from './profil-commercial/profil-commercial.component';
 
 
 @NgModule({
   declarations: [
     ProfilAdminComponent,
-    ProfilParentComponent,
-    ProfilBabysitterComponent
+    ProfilClientComponent,
+    ProfilCommercialComponent
   ],
   imports: [
     CommonModule,

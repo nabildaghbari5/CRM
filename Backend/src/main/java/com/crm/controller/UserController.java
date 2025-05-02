@@ -1,10 +1,12 @@
 package com.crm.controller;
 
 
+import java.security.Principal;
 import java.util.List;
 
 import com.crm.exception.MessageResponse;
 import com.crm.exception.NotFoundException;
+import com.crm.model.ChangePasswordRequest;
 import com.crm.model.Role;
 import com.crm.model.User;
 import com.crm.service.UserService;
@@ -40,7 +42,6 @@ public class UserController {
         User response = userService.create(user);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
-
 
 
     @PutMapping("/{id}")
@@ -95,6 +96,12 @@ public class UserController {
 
     }
 
+
+    @PatchMapping("/change-password")
+    public  ResponseEntity<String> changePassword(@RequestBody ChangePasswordRequest request , Principal connectedUser){
+        userService.changePassword(request ,connectedUser );
+        return ResponseEntity.ok().build();
+    }
 
 
 

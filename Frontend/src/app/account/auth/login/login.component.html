@@ -5,14 +5,17 @@
         <div class="card overflow-hidden">
           <div class="card-body pt-0">
             <div class="p-2">
-              <br><br>
+                 <!-- Logo Section -->
+                <div class="text-center mb-4">
+                  <img src="assets/images/crm0.jpeg" alt="Logo" class="img-fluid" style="max-width: 300px;" />
+                </div>
+                
               <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="email" formControlName="email" class="form-control" id="email"
                     placeholder=" e-mail"  />
                 </div>
-
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
                   <input type="password" formControlName="password" class="form-control" id="password"

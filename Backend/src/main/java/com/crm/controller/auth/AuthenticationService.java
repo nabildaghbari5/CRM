@@ -2,7 +2,13 @@ package com.crm.controller.auth;
 
 import java.io.IOException;
 
+import com.crm.model.Admin;
+import com.crm.model.Client;
+import com.crm.model.Commercial;
 import com.crm.model.User;
+import com.crm.repository.AdminRepository;
+import com.crm.repository.ClientRepository;
+import com.crm.repository.CommercialRepository;
 import com.crm.repository.UserRepository;
 import com.crm.token.Token;
 import com.crm.token.TokenRepository;
@@ -30,6 +36,10 @@ public class AuthenticationService {
     private final JwtService jwtService ;
     private final AuthenticationManager authenticationManager ;
     private final TokenRepository tokenRepository ;
+    private final AdminRepository adminRepository ;
+    private final ClientRepository clientRepository ;
+    private final CommercialRepository commercialRepository ;
+
     public AuthenticationResponse authenticate(AuthenticationRequest request ) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -67,15 +77,11 @@ public class AuthenticationService {
                 .sexe(request.getSexe())
                 .status(request.getStatus())
                 .build();
-
-
-
-
-
         var savedUSer= repository.save(user);
         var jwtToken = jwtService.generateToken(user);
         jwtGenerated =jwtToken ;
         saveUserToken(savedUSer, jwtToken);
+        saveUserWithRole(user);
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .id(savedUSer.getId())
@@ -87,7 +93,43 @@ public class AuthenticationService {
                 .build();
     }
 
+    private void saveUserWithRole(User user) {
+        switch (user.getRole().toString()) {
+            case "Admin":
+                saveUserAdmin(user);
+                break;
+            case "Client":
+                saveUserClient(user);
+                break;
+            case "Commercial":
+                saveUserCommercial(user);
+                break;
 
+            default:
+                // Gestion par défaut si le rôle n'est pas reconnu
+                throw new IllegalArgumentException("Rôle non pris en charge : " + user.getRole().toString());
+        }
+    }
+    private void saveUserAdmin(User user) {
+        var admin = Admin.builder()
+                .user(user)
+                .build();
+        adminRepository.save(admin);
+    }
+
+    private void saveUserClient(User user) {
+        var client = Client.builder()
+                .user(user)
+                .build();
+        clientRepository.save(client);
+    }
+
+    private void saveUserCommercial(User user) {
+        var commercial = Commercial.builder()
+                .user(user)
+                .build();
+        commercialRepository.save(commercial);
+    }
 
     private void revokedAllUserTokens(User user) {
         var validUserTokens =tokenRepository.findAllValidTokensByUser(user.getId());

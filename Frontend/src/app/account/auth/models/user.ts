@@ -9,8 +9,8 @@ export interface UserConnected {
     password?:String;
     status?:String;
     admin?:any
-    babysitter?:any;
-    parent?:any
+    commercial?:any;
+    client?:any
     
    
 

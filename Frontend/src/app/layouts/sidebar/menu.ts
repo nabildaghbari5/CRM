@@ -5,85 +5,70 @@ export const MENU = {
 
         {
             id: 1,
-            label: 'Compte Parent',
-            link: 'users/parent',
+            label: 'Compte Commerical',
+            link: 'users/commercial',   
 
         },    
         {
             id: 2,
-            label: 'Compte BabySitter',
-            link: 'users/babySitter',  
+            label: 'Compte Client',  
+            link: 'users/client',  
 
-        },    
+        },   
         {
             id: 3,
-            label: 'Announcement',
-            link: 'announcement_admin',
-
-        },    
-        {
-            id: 3,
-            label: 'Demandes acceptées',
-            link: 'demandes/demande_accepte',
+            label: 'Rendez-vous',  
+            link: 'rendez-vous/rendez-admin',  
 
         },     
        
     ],
 
     
-    Parent: [
+    Client: [
         {
             id: 1,
-            label: "Enfant",
-            link: 'users/enfant', 
+            label: "Rendez-vous",
+            link: 'rendez-vous/rendez-client', 
 
         },
 
         {
             id: 2,
-            label: "Announcement",
-            link: 'announcement_parent', 
+            label: "Suivi Contrat",
+            link: 'contrat-client', 
 
         },
-        {
-            id: 3,
-            label: "Offre BabySitter",
-            link: 'offre_babysitter',
-
-        },
-        {
-            id: 4,
-            label: "les demandes",
-            link: 'demandes/demande_babysitter',
-
-        },
+   
+       
     
        
 
     ],
-    Babysitter: [
+    Commercial: [
+        {
+            id: 1,
+            label: "Suivi Rendez-vous",
+            link: 'rendez-vous/rendez-commerical',
+
+        },
+        
       
         {
             id: 2,
-            label: "Announcement",
-            link: 'announcement_babysitter',
-
-        },
-
-        {
-            id: 2,
-            label: "Offre Parent",
-            link: 'offre_parent',
+            label: "Contrat",
+            link: 'contrat/contrat-commercial',
 
         },
 
         {
             id: 3,
-            label: "Suivi demande",
-            link: 'demandes/suivi_demande',
+            label: "Contrat terminé.",
+            link: 'contrat-terminé',
 
         },
-        
+
+     
         
 
     ],

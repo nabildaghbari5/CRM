@@ -39,9 +39,21 @@ public class User  implements UserDetails {
     private String password ;
     private String sexe ;
     private String status;
-
     @Enumerated(EnumType.STRING)
     private  Role   role ;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
+    private Admin admin;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
+    private Client client;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
+    private Commercial commercial;
+
 
 
     @OneToMany(mappedBy = "user")

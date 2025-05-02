@@ -5,7 +5,9 @@
         <div class="card overflow-hidden">
           <div class="card-body pt-0">
             <div class="p-2" >
-              <br><br>
+              <div class="text-center mb-4">
+                <img src="assets/images/crm0.jpeg" alt="Logo" class="img-fluid" style="max-width: 300px;" />
+              </div>
               <form class="needs-validation" name="signupForm" [formGroup]="signupForm" (ngSubmit)="onSubmit()"
                 novalidate>      
 
@@ -28,13 +30,16 @@
                   <label for="password" class="form-label">Mot de passe</label>
                   <input type="password" formControlName="password" class="form-control"  id="password" placeholder="password" />
                 </div>
-                <div class="mb-3">
+                <!--
+                  <div class="mb-3">
                   <label for="password" class="form-label">Role</label>
                   <select formControlName="role" class="form-control">
                     <option value="Parent">Parent</option>
                     <option value="Babysitter">Babysitter</option>
                   </select>
                 </div>
+                -->
+              
                 <div class="mb-3 d-flex align-items-center"> 
                   <h6 class="mr-3">Genre</h6>
                   &nbsp;&nbsp;&nbsp;

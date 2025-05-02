@@ -5,10 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [  
 
  
-  { path: '', loadChildren: () => import('./announcements/announcements.module').then(m => m.AnnouncementsModule) },
+  { path: '', loadChildren: () => import('./contrat/contrat.module').then(m => m.ContratModule) },
+  { path: 'rendez-vous', loadChildren: () => import('./rendez-vous/rendez-vous.module').then(m => m.RendezVousModule) },
+  { path: 'contrat', loadChildren: () => import('./contrat/contrat.module').then(m => m.ContratModule) },
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-  { path: 'profils', loadChildren: () => import('./profils/profils.module').then(m => m.ProfilsModule) },
-  { path: 'demandes', loadChildren: () => import('./demandes/demandes.module').then(m => m.DemandesModule) },
+  { path: 'profils', loadChildren: () => import('./profils/profils.module').then(m => m.ProfilsModule) }, 
 
 
 

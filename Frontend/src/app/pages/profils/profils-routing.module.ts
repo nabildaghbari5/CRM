@@ -1,22 +1,21 @@
-import { ParentComponent } from './../users/parent/parent.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
-import { ProfilBabysitterComponent } from './profil-babysitter/profil-babysitter.component';
-import { ProfilParentComponent } from './profil-parent/profil-parent.component';
+import { ProfilClientComponent } from './profil-client/profil-client.component';
+import { ProfilCommercialComponent } from './profil-commercial/profil-commercial.component';
 
 const routes: Routes = [
   {
     path:"profil_Admin" ,
     component:ProfilAdminComponent
   },
-  {
-    path:"profil_babysitter",
-    component:ProfilBabysitterComponent
+  {  
+    path:"profil_client",
+    component:ProfilClientComponent
   },
   {
-    path:"profil_parent",
-    component:ProfilParentComponent
+    path:"profil_commercial",
+    component:ProfilCommercialComponent
   }
 ];
 

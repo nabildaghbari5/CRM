@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BabysitterComponent } from './babysitter/babysitter.component';
-import { ParentComponent } from './parent/parent.component';
-import { EnfantComponent } from './enfant/enfant.component';
+import { CommercialComponent } from './commercial/commercial.component';
+import { ClientComponent } from './client/client.component';
 
 const routes: Routes = [
- {
-  path:'babySitter', 
-  component:BabysitterComponent
- }, 
- {
-  path:'parent',
-  component:ParentComponent
- }, 
- {
-  path:'enfant',
-  component:EnfantComponent
- }
+  {
+    path:'commercial', 
+    component:CommercialComponent
+   }, 
+   {
+    path:'client', 
+    component:ClientComponent
+   }, 
 ];
 
 @NgModule({

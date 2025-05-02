@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
       lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      role:[''],
+      role:['Client'],
       status:['En attente'],
       sexe:['', Validators.required],
     });

@@ -102,14 +102,10 @@ export class TopbarComponent implements OnInit {
 
   getImageTopBar(){
     this.imageService.getImage().subscribe((imageData) => {
-      this.topbarImageUser = imageData;
-     // 
+      this.topbarImageUser = imageData; 
     });
   }
-  /*
-  {"id":118,"firstname":"nabil","lastname":"daghbari","email":"nabil@gmail.com","role":"ADMINISTRATEUR"}  ====> type JSON 
-   {id: 118, firstname: 'nabil', lastname: 'daghbari', email: 'nabil@gmail.com', role: 'ADMINISTRATEUR'}  ====> JavaScript
-  */
+
   
   setConnectedUser() {
     const userConnectedString = localStorage.getItem('UserConnected');
@@ -121,12 +117,12 @@ export class TopbarComponent implements OnInit {
   
   navigationprofil(){ 
     this.userRole = this.userConnected.role;
-    if(this.userRole==='ADMINISTRATEUR'){
+    if(this.userRole==='Admin'){
       this.router.navigate(['/profils/profil_Admin']);
-    }else if(this.userRole==='Babysitter'){
-      this.router.navigate(['/profils/profil_babysitter']);
-    }else if(this.userRole==='Parent'){
-      this.router.navigate(['/profils/profil_parent']);  
+    }else if(this.userRole==='Client'){
+      this.router.navigate(['/profils/profil_client']);
+    }else if(this.userRole==='Commercial'){
+      this.router.navigate(['/profils/profil_commercial']);     
     }
   }
 

@@ -53,12 +53,12 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
   initialize(): void {
     console.log(this.userRole)
         // Utilisez le menu en fonction du rôle de l'utilisateur
-    if (this.userRole === 'ADMINISTRATEUR') {
+    if (this.userRole === 'Admin') {
       this.menuItems = MENU.adminMenu;
-    } else if (this.userRole === 'Parent') {
-      this.menuItems = MENU.Parent;
-    } else if (this.userRole === 'Babysitter') {
-      this.menuItems = MENU.Babysitter;
+    } else if (this.userRole === 'Client') {
+      this.menuItems = MENU.Client;
+    } else if (this.userRole === 'Commercial') {
+      this.menuItems = MENU.Commercial;
     } 
   }
 

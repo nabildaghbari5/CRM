@@ -58,16 +58,16 @@ export class LoginComponent implements OnInit {
              }));
 
             switch (this.authResponse.role) {
-                case 'ADMINISTRATEUR':
-                  this.router.navigate(['/announcement_admin']);
+                case 'Admin':
+                  this.router.navigate(['/profils/profil_Admin']);
                   break;
 
-                case 'Parent':  
-                  this.router.navigate(['announcement_parent']);
+                case 'Client':  
+                  this.router.navigate(['/profils/profil_client']); 
                   break;
 
-                case 'Babysitter':
-                  this.router.navigate(['/announcement_babysitter']);
+                case 'Commercial':
+                  this.router.navigate(['/profils/profil_commercial']);
                   break;
 
                 default:
