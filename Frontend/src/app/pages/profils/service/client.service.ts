@@ -35,6 +35,10 @@ export class ClientService {
     let url = `${this.baseUrl()}/${id}`;
     return this.http.get<any>(url);
    }
-
+   
+ getClientsWithContrats(): Observable<any[]> {
+    let url = `${this.baseUrl()}/with-contrats`;
+    return this.http.get<any[]>(url); 
+  }
    
 }

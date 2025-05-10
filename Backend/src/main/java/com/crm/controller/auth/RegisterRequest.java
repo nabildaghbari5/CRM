@@ -18,5 +18,6 @@ public class RegisterRequest {
     private Role role ;
     private String sexe ;
     private String status;
+    private String societe ;
 
 }

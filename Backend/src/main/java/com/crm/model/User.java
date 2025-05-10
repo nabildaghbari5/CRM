@@ -41,6 +41,8 @@ public class User  implements UserDetails {
     private String status;
     @Enumerated(EnumType.STRING)
     private  Role   role ;
+    private String societe ;
+
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")

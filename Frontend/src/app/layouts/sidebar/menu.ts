@@ -11,12 +11,18 @@ export const MENU = {
         },    
         {
             id: 2,
-            label: 'Compte Client',  
+            label: 'Les prospects ',  
             link: 'users/client',  
 
         },   
         {
             id: 3,
+            label: 'Les clients', 
+            link: 'users/client-contrat',  
+
+        },   
+        {
+            id: 4,
             label: 'Rendez-vous',  
             link: 'rendez-vous/rendez-admin',  
 

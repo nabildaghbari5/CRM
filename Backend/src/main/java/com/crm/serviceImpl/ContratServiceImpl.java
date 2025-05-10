@@ -50,6 +50,7 @@ public class ContratServiceImpl  implements ContratService {
         contrat.setMontant(dto.getMontant() != null ? dto.getMontant() : contrat.getMontant());
         contrat.setStatut(dto.getStatut() != null ? dto.getStatut() : contrat.getStatut());
         contrat.setTypeContrat(dto.getTypeContrat() != null ? dto.getTypeContrat() : contrat.getTypeContrat());
+        contrat.setPourcentageAvancement(dto.getPourcentageAvancement() != null ? dto.getPourcentageAvancement() : contrat.getPourcentageAvancement());
         contrat.setDescription(dto.getDescription() != null ? dto.getDescription() : contrat.getDescription());
         return contratRepository.save(contrat);
     }

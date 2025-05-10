@@ -6,15 +6,12 @@ import com.crm.service.AdminService;
 import com.crm.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 
 @RestController
@@ -22,12 +19,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ClientController {
 
-    private final ClientService adminService ;
+    private final ClientService clientRepository ;
 
     @PostMapping("")
     public ResponseEntity<Client> create(@RequestBody Client dto){
-        Client response = adminService.create(dto);
+        Client response = clientRepository.create(dto);
         return new ResponseEntity<Client>(response, HttpStatus.OK);
 
+    }
+
+    @GetMapping("/with-contrats")
+    public ResponseEntity<List<Client>> getClientsWithContrats() {
+        List<Client> clients = clientRepository.findClientsWithContrats();
+        return ResponseEntity.ok(clients);
     }
 }

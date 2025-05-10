@@ -41,4 +41,9 @@ public class ClientServiceImpl  implements ClientService {
     public void delete(Integer integer) throws NotFoundException {
 
     }
+
+    @Override
+    public List<Client> findClientsWithContrats() {
+        return clientRepository.findClientsWithContrats();
+    }
 }

@@ -63,7 +63,9 @@ export class ContratCommercialComponent implements OnInit {
       typeContrat: [''],
       statut: [''],
       description: [''],
-      clientId: [null]  // <- ici
+      clientId: [null],  
+      pourcentageAvancement: [0] 
+
     });
   }
 
@@ -88,6 +90,7 @@ export class ContratCommercialComponent implements OnInit {
         montant: contrat.montant,
         typeContrat: contrat.typeContrat,
         statut: contrat.statut,
+        pourcentageAvancement:contrat.pourcentageAvancement,
         description: contrat.description,
         clientId: contrat.client?.id || null
       });

@@ -75,6 +75,7 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole())
                 .sexe(request.getSexe())
+                .societe(request.getSociete())
                 .status(request.getStatus())
                 .build();
         var savedUSer= repository.save(user);

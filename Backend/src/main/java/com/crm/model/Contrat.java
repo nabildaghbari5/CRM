@@ -22,6 +22,7 @@ public class Contrat {
     private String typeContrat;
     private String description;
     private LocalDate dateCreation;
+    private Integer pourcentageAvancement ;
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;

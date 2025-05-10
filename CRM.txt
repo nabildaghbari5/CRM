@@ -4,5 +4,14 @@ Gestion des comptes :  comercial  + client => and admin
 -Gestion de rendez-vous : le client envoyer le rendez-vous validation coté admin et selecionne le commercial -- validation par commercial
 
 -Gestion de contact : Commercial 
- 
 
+*****************************************************************************
+-Client : ajouter une champs société dans le formulaire d'inscrit des client 
+ 
+- Conception contrat : le client pour le primère fois sera prospect , puis si e client est associe a une contrat sera un client --> afficher dans la liste de client 
+
+*****-----******------********------******--------*****-----*****----******-----*******
+
+champs de status du contrat sera un bar progress
+*******
+gestion reclamation coté client sera valider par commercial : en attende , en cours de traitement et valider.  

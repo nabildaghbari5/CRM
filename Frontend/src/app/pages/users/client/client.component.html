@@ -1,7 +1,7 @@
 
 
 <div class="titre-page">
-  <h4>compte client</h4>
+  <h4>Liste des prospects</h4>
 </div>  
  
 <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
@@ -19,6 +19,11 @@
             <th>
               <strong>
                 {{'ID' }}
+              </strong>
+            </th>
+            <th>
+              <strong>
+                Société
               </strong>
             </th>
             <th>
@@ -53,6 +58,9 @@
           <td>
             {{responsible.id}}
           </td>
+           <td>
+            {{responsible.societe}}
+          </td>
           <td>
             {{responsible.firstname}}
           </td>
@@ -74,7 +82,7 @@
 
               <button  class="dropdown" ngbDropdown placement="bottom-right">
                 <a class="dropdown-toggle card-drop" data-toggle="dropdown" ngbDropdownToggle aria-expanded="false">
-                  <i class="btn btn-danger btn-sm btn-rounded fas fa-user-times font-size-13"></i>
+                  <i class="btn btn-info btn-sm btn-rounded fas fa-user-times font-size-13"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu >  
                   <li><a  class="dropdown-item"  (click)="updateStatus(responsible.id,1)"> &nbsp;Accept</a></li>

@@ -7,13 +7,17 @@ import { RendezCommercialComponent } from './rendez-commercial/rendez-commercial
 import { RendezAdminComponent } from './rendez-admin/rendez-admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReclamationClientComponent } from './reclamation-client/reclamation-client.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
 
 
 @NgModule({
   declarations: [
     RendezClientComponent,
     RendezCommercialComponent,
-    RendezAdminComponent
+    RendezAdminComponent,
+    ReclamationClientComponent,
+    ReclamationComponent
   ],
   imports: [
     CommonModule,

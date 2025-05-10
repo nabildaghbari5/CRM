@@ -54,5 +54,10 @@ public class ContratController {
         return contratService.getContratsByCommercialId(commercialId);
     }
 
- 
+    @GetMapping("/{status}/{commercialId}")
+    public List<Contrat> getContratsByCommercialId(@PathVariable Integer commercialId , @PathVariable String status) {
+        return contratService.findByStatut(status , commercialId);
+    }
+
+
 }

@@ -59,6 +59,9 @@ export class ContratService {
     return this.http.put(url, {}); 
   }
 
-
+  findByStatusAndCommercial(status:string , commercialId: number): Observable<any[]> {
+    const url = `${this.baseUrl}/statut/${status}/${commercialId}`;
+    return this.http.get<any[]>(url);
+  }
 
 }

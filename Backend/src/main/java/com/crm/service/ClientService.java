@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ClientService extends BaseService<Client, Integer> {
 
+    List<Client> findClientsWithContrats();
 }

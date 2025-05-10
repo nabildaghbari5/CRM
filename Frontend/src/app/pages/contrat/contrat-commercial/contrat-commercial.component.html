@@ -30,15 +30,24 @@
         <td>{{ contrat.montant }}</td>
         <td>{{ contrat.typeContrat }}</td>
         <td>
-          <span class="badge"
-                [ngClass]="{
-                  'badge-success': contrat.statut === 'Actif',
-                  'badge-danger': contrat.statut === 'Inactif',
-                  'badge-warning': contrat.statut === 'Terminé'
-                }">
-            {{ contrat.statut }}
-          </span>
+          <div class="progress" style="height: 20px;">
+            <div 
+              class="progress-bar" 
+              role="progressbar"
+              [ngClass]="{
+                'bg-success': contrat.statut === 'Actif',
+                'bg-danger': contrat.statut === 'Inactif',
+                'bg-warning': contrat.statut === 'Terminé'
+              }"
+              [style.width.%]="contrat.pourcentageAvancement" 
+              [attr.aria-valuenow]="contrat.pourcentageAvancement"   
+              aria-valuemin="0" 
+              aria-valuemax="100">
+              {{ contrat.pourcentageAvancement }}%
+            </div>
+          </div>
         </td>
+        
         <td>{{ contrat.description }}</td>
         <td>
           <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="onDelete(contrat.id)">
@@ -107,6 +116,37 @@
         </select>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="pourcentageAvancement">Avancement (%)</label>
+          <input 
+            type="range"
+            class="form-range"
+            formControlName="pourcentageAvancement"
+            min="0" max="100" step="1" 
+          />
+          <span>{{ contratForm.get('pourcentageAvancement')?.value }}%</span>
+        </div>
+      
+        <div class="col-md-6 mb-3">
+          <label>Barre de progression</label>
+          <div class="progress" style="height: 20px;">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [style.width.%]="contratForm.get('pourcentageAvancement')?.value"
+              [ngClass]="{
+                'bg-success': contratForm.get('pourcentageAvancement')?.value >= 75,
+                'bg-warning': contratForm.get('pourcentageAvancement')?.value >= 40 && contratForm.get('pourcentageAvancement')?.value < 75,
+                'bg-danger': contratForm.get('pourcentageAvancement')?.value < 40
+              }"
+            >
+              {{ contratForm.get('pourcentageAvancement')?.value }}%
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <div class="row">
         <div class="col-md-12 mb-3">
           <label for="description">Description</label>

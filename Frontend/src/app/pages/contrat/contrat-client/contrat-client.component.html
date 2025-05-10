@@ -1,0 +1,94 @@
+<div class="titre-page">
+    <h4>Liste des contrats Termnié</h4>
+  </div>
+  <br>
+
+  <!-- Tableau des contrats -->
+  <div class="datatable mt-3">
+    <table class="table">
+      <thead class="datatable-header">
+        <tr>
+          <th><strong>ID</strong></th>
+          <th><strong>Date début</strong></th>
+          <th><strong>Date fin</strong></th>
+          <th><strong>Montant</strong></th>
+          <th><strong>Type</strong></th>
+          <th><strong>Statut</strong></th>
+          <th><strong>Description</strong></th>
+          <th><strong>Actions</strong></th>
+        </tr>
+      </thead>
+      <tbody class="text-sm">
+        <tr *ngFor="let contrat of contratList">
+          <td>{{ contrat.id }}</td>
+          <td>{{ contrat.dateDebut }}</td>
+          <td>{{ contrat.dateFin }}</td>
+          <td>{{ contrat.montant }}</td>
+          <td>{{ contrat.typeContrat }}</td>
+          <td>
+            <div class="progress" style="height: 20px;">
+              <div 
+                class="progress-bar" 
+                role="progressbar"
+                [ngClass]="{
+                  'bg-success': contrat.statut === 'Actif',
+                  'bg-danger': contrat.statut === 'Inactif',
+                  'bg-warning': contrat.statut === 'Terminé'
+                }"
+                [style.width.%]="contrat.pourcentageAvancement" 
+                [attr.aria-valuenow]="contrat.pourcentageAvancement"   
+                aria-valuemin="0" 
+                aria-valuemax="100">
+                {{ contrat.pourcentageAvancement }}%
+              </div>
+            </div>
+          </td>
+          <td>{{ contrat.description }}</td>
+          <td>
+            <button type="button" class="btn btn-info btn-sm btn-rounded" (click)="openModal(detailContratTemplate, contrat)">
+              <i class="fas fa-info-circle"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <ng-template #detailContratTemplate let-modal>
+    <div class="modal-header bg-info text-white">
+      <h5 class="modal-title">📄 Détails du contrat</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+  
+    </div>
+  
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6 mb-2">
+          <p><strong>ID :</strong> {{ selectedContrat?.id }}</p>
+          <p><strong>Date de début :</strong> {{ selectedContrat?.dateDebut | date:'dd/MM/yyyy' }}</p>
+          <p><strong>Date de fin :</strong> {{ selectedContrat?.dateFin | date:'dd/MM/yyyy' }}</p>
+          <p><strong>Montant :</strong> {{ selectedContrat?.montant | currency:'EUR':'symbol' }}</p>
+        </div>
+        <div class="col-md-6 mb-2">
+          <p><strong>Statut :</strong> {{ selectedContrat?.statut }}</p>
+          <p><strong>Type de contrat :</strong> {{ selectedContrat?.typeContrat }}</p>
+          <p><strong>Description :</strong> {{ selectedContrat?.description }}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Client :</strong> {{ selectedContrat?.client?.user.firstname }}  {{ selectedContrat?.client?.user.lastname }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Commercial :</strong> {{ selectedContrat?.commercial?.user.firstname }} {{ selectedContrat?.commercial?.user.lastname }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="closeModal()">Fermer</button>
+    </div>
+  </ng-template>
+  

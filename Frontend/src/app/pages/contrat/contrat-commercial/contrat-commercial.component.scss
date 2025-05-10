@@ -97,3 +97,104 @@ body {
     
     }
   
+
+
+    .progress {
+      width: 100%;
+      height: 20px;
+      background-color: #e9ecef;
+      border-radius: 0.29rem;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      transition: width 0.5s ease-in-out;
+      border-radius: 0.25rem;
+    }
+    
+    .bg-success {
+      background-color: #28a745;
+    }
+    
+    .bg-warning {
+      background-color: #ffc107;
+    }
+    
+    .bg-danger {
+      background-color: #dc3545;
+    }
+    
+    .progress-bar[style] {
+      /* Optionnel : appliquer un dégradé ou d'autres styles */
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    }
+    
+
+    /* Style de base pour le range */
+.form-range {
+  -webkit-appearance: none;  /* Pour rendre l'élément personnalisable */
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Couleur de la barre de progression */
+.form-range::-webkit-slider-runnable-track {
+  height: 8px;
+  background-color: #e9ecef;  /* Couleur de fond de la barre */
+  border-radius: 5px;
+}
+
+/* Couleur de la poignée (thumb) */
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #007bff;  /* Couleur du curseur */
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Couleur de la barre lorsque l'utilisateur interagit avec elle */
+.form-range:active::-webkit-slider-thumb {
+  background-color: #0056b3;
+}
+
+/* Pour Firefox */
+.form-range::-moz-range-track {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #007bff;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Pour les autres navigateurs (IE et Edge) */
+.form-range::-ms-track {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  border-color: transparent;
+}
+
+.form-range::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #007bff;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}

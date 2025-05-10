@@ -24,10 +24,11 @@
           <td>{{ rendezVous.lieu }}</td>
           <td>{{ rendezVous.description }}</td>  
           <td>
-            <span *ngIf="rendezVous.status === '0' || rendezVous.status === 0 || rendezVous.status === 'EN_ATTENTE'" class="text-warning">En attente</span>
-            <span *ngIf="rendezVous.status === 'Refuse' || rendezVous.status === 'REFUSE'" class="text-danger">Refusé</span>
-            <span *ngIf="rendezVous.status === 'Valide' || rendezVous.status === 'Valide'" class="text-success">Validé</span>
-          </td>          
+            <span *ngIf="rendezVous.status === '0'" class="badge badge-warning">En attente</span>
+            <span *ngIf="rendezVous.status === 'Refuse'" class="badge badge-danger">Refusé</span>
+            <span *ngIf="rendezVous.status === 'Planifie'" class="badge badge-primary">Planifié</span>
+            <span *ngIf="rendezVous.status === 'Valide'" class="badge badge-success">Validé</span>
+          </td>         
           <td>
             <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="onDelete(rendezVous.id)">
               <i class="fas fa-trash-alt"></i>

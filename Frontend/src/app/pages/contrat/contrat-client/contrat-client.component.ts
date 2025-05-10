@@ -11,8 +11,78 @@ import { UserService } from 'src/app/account/auth/services/user.service';
   styleUrls: ['./contrat-client.component.scss']
 })
 export class ContratClientComponent implements OnInit {
+
+  contratList: any[] = [];
+  modalRef!: NgbModalRef;
+  userId: any;  
+  clientId:any
+  currenContratId: number | null = null;
+  selectedClientId!: number;
+  listeClient:any
+  selectedContrat:any
+  constructor(
+    private modalService: NgbModal,
+    private contratService: ContratService,
+    private authService: AuthentificationService,
+    private userService:UserService
+  ) {}
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.findAllClient();
+    const userId = this.authService.getCurrentUserId();
+    if (userId) {
+      this.userId = userId;
+      this.userService.findById(this.userId).subscribe({
+        next:(data)=>{
+            if(data.client !=null){
+             this.clientId=data.client.id;
+             this.getContratByClientId();  
+            }
+        }, 
+        error:(error) =>{
+            console.log(error.error)
+        }
+      
+      })
+      
+    } else {
+      console.error('Utilisateur non connecté ou ID manquant');
+    }
+  }
+
+  findAllClient() {
+    this.userService.findByRole('Client').subscribe({
+      next: (result) => {
+        this.listeClient =result ; 
+      },
+      error: (err) => console.error('Erreur lors de la récupération des commerciaux', err)
+    });
+  }
+   
+  
+  openModal(content: any, contrat?: any) {
+    this.selectedContrat=contrat;
+    this.modalRef = this.modalService.open(content, { centered: true, size: 'lg' });
+  }
+  
+
+  closeModal() {
+    if (this.modalRef) {
+      this.modalRef.close();
+    }
+  }
+
+
+
+  getContratByClientId() {
+    this.contratService.findByClientId(this.clientId).subscribe({
+      next: (data) => {
+        this.contratList = data;
+      },
+      error: (err) => {
+        console.error('Erreur lors de la récupération des contrats', err);
+      }
+    });
   }
 
 
