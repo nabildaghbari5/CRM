@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="glass-card">
+
+    <!-- Section des filtres -->
+    <section class="filters-section">
+      <div class="select-container">
+        <label for="clientSelect" class="select-label">Sélectionner un client</label>
+        <select  [(ngModel)]="selectedClientId" (change)="onFilterChange()" id="clientSelect" class="form-select">
+          <option *ngFor="let client of listClient" [value]="client.id">
+            {{ client?.user?.firstname }} {{ client?.user?.lastname }}
+          </option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Section de la table -->
+    <section class="table-section">
+      <div class="table-header">
+        <div class="row">
+          <div class="col-xl-8 col-lg-6 col-md-12">
+            <h4>Transactions récentes</h4>
+          </div>
+        </div>
+      </div>
+
+      <table class="payments-table">
+        <thead>
+          <tr>
+            <th>Date du debut  </th>
+            <th>Date de fin  </th>
+            <th>Non commercial</th>
+            <th>Statut</th>
+            <th>Montant payé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contrat of contratList">
+            <td>{{contrat.dateDebut}}</td>
+            <td>{{contrat.dateFin}}</td>
+            <td>{{contrat.commercial.user.lastname}} {{contrat.commercial.user.firstname}}</td>
+            <td><div class="progress" style="height: 20px;">
+              <div 
+                class="progress-bar" 
+                role="progressbar"
+                [ngClass]="{
+                  'bg-success': contrat.statut === 'Actif',
+                  'bg-danger': contrat.statut === 'Inactif',
+                  'bg-warning': contrat.statut === 'Terminé'
+                }"
+                [style.width.%]="contrat.pourcentageAvancement" 
+                [attr.aria-valuenow]="contrat.pourcentageAvancement"   
+                aria-valuemin="0" 
+                aria-valuemax="100">
+                {{ contrat.pourcentageAvancement }}%
+              </div>
+            </div></td>
+            <td><span class="status-badge">{{contrat.montant}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+</div>
+<br>

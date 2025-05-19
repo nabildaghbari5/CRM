@@ -6,6 +6,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommercialComponent } from './commercial/commercial.component';
 import { ClientComponent } from './client/client.component';
 import { ClientContratComponent } from './client-contrat/client-contrat.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HistoriqueComponent } from './historique/historique.component';
 
 
    
@@ -13,7 +15,9 @@ import { ClientContratComponent } from './client-contrat/client-contrat.componen
   declarations: [
     CommercialComponent,
     ClientComponent,
-    ClientContratComponent
+    ClientContratComponent,
+    DashboardComponent,
+    HistoriqueComponent
   ],
   imports: [
     CommonModule,

@@ -5,18 +5,20 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ContratService {
+export class ReclamationService {
 
-  private baseUrl = 'http://localhost:8081/api/contrat'; 
+  private baseUrl = 'http://localhost:8081/api/reclamation'; // En propriété pour éviter une méthode inutile
+
   constructor(private http: HttpClient) { }
-  create(contrat: any , clientId:number , commercialId:number): Observable<any> {
-    const url = `${this.baseUrl}/${clientId}/${commercialId}`;
-    return this.http.post<any>(url, contrat);
+
+  create(rendezVous: any , clientId:number): Observable<any> {
+    const url = `${this.baseUrl}/${clientId}`;
+    return this.http.post<any>(url, rendezVous);
   }
 
-  update(id: number, contrat: any): Observable<any> {
+  update(id: number, rendezVous: any): Observable<any> {
     const url = `${this.baseUrl}/${id}`;
-    return this.http.put<any>(url, contrat);
+    return this.http.put<any>(url, rendezVous);
   }
 
   findById(id: number): Observable<any> {
@@ -56,12 +58,6 @@ export class ContratService {
 
   updateStatusCommercial(rendezVousId: number, status: string) {
     const url = `${this.baseUrl}/updateStatus/${rendezVousId}/${status}`; 
-    return this.http.put(url, {}); 
+    return this.http.put(url, {});
   }
-
-  findByStatusAndCommercial(status:string , commercialId: number): Observable<any[]> {
-    const url = `${this.baseUrl}/${status}/${commercialId}`;
-    return this.http.get<any[]>(url);
-  }
-
 }

@@ -1,0 +1,49 @@
+<div class="titre-page">
+  <h4>Tableau de bord</h4>
+</div>
+<br>
+
+<div class="row">
+  <div class="col-xl-3 col-sm-6">
+    <div class="card">
+      <div class="card-body text-center">
+        <i class="bi bi-people-fill fs-2 text-primary"></i>
+        <p class="card-title mt-2">Nombre de clients</p>
+        <h3 class="card-value">{{ stats?.nombreClients }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-sm-6">
+    <div class="card">
+      <div class="card-body text-center">
+        <i class="bi bi-person-plus-fill fs-2 text-success"></i>
+        <p class="card-title mt-2">Nombre de prospects</p>
+        <h3 class="card-value">{{ stats?.nombreProspects }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-sm-6">
+    <div class="card">
+      <div class="card-body text-center">
+        <i class="bi bi-file-earmark-text-fill fs-2 text-warning"></i>
+        <p class="card-title mt-2">Nombre de contrats</p>
+        <h3 class="card-value">{{ stats?.nombreContrats }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-sm-6">
+    <div class="card">
+      <div class="card-body text-center">
+        <i class="bi bi-cash-coin fs-2 text-danger"></i>
+        <p class="card-title mt-2">Caisse</p>
+        <h3 class="card-value">{{ stats?.caisse | number:'1.0-0' }} DT</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-historique></app-historique>

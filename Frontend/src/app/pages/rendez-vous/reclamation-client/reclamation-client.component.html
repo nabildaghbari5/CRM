@@ -1,1 +1,69 @@
-<p>reclamation-client works!</p>
+<div class="titre-page">
+  <h4>Réclamations</h4>
+</div>
+<br>
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+  <button class="btn btn-info btn-sm btn-rounded" (click)="openModal(content)">
+    &nbsp;&nbsp;Ajouter
+  </button>
+</div>
+
+<div class="datatable mt-3">
+  <table class="table">
+    <thead class="datatable-header">
+      <tr>
+        <th><strong>ID</strong></th>
+        <th><strong>Date</strong></th>
+        <th><strong>Objet</strong></th>
+        <th><strong>Description</strong></th>
+        <th><strong>Status</strong></th>
+        <th><strong>Actions</strong></th>
+      </tr>
+    </thead>
+    <tbody class="text-sm">
+      <tr *ngFor="let reclamation of reclamationList">
+        <td>{{ reclamation.id }}</td>
+        <td>{{ reclamation.dateEnvoi | date: 'short' }}</td>
+        <td>{{ reclamation.objet }}</td>
+        <td>{{ reclamation.message }}</td>
+        <td>
+          <span *ngIf="reclamation.statut === 'En attente'" class="badge badge-warning">En attente</span>
+          <span *ngIf="reclamation.statut === 'Traitee'" class="badge badge-success">Traité</span>
+          <span *ngIf="reclamation.statut === 'Refusee'" class="badge badge-danger">Refusé</span>
+        </td>
+        <td>
+          <button type="button" class="btn btn-info btn-sm btn-rounded" (click)="openModal(content, reclamation)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="onDelete(reclamation.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">{{ isEditMode ? 'Modifier' : 'Ajouter' }} une Réclamation</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="reclamationForm">
+      <div class="mb-3">
+        <label for="objet">Objet</label>
+        <input type="text" id="objet" formControlName="objet" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="description">Message</label>
+        <textarea id="description" formControlName="message" class="form-control"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeModal()">Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="saveReclamation()">Enregistrer</button>
+  </div>
+</ng-template>

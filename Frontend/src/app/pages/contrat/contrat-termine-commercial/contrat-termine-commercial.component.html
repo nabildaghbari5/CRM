@@ -25,16 +25,24 @@
           <td>{{ contrat.dateFin }}</td>
           <td>{{ contrat.montant }}</td>
           <td>{{ contrat.typeContrat }}</td>
-          <td>
-            <span class="badge"
-                  [ngClass]="{
-                    'badge-success': contrat.statut === 'Actif',
-                    'badge-danger': contrat.statut === 'Inactif',
-                    'badge-warning': contrat.statut === 'Terminé'
-                  }">
-              {{ contrat.statut }}
-            </span>
-          </td>
+            <td>
+          <div class="progress" style="height: 20px;">
+            <div 
+              class="progress-bar" 
+              role="progressbar"
+              [ngClass]="{
+                'bg-success': contrat.statut === 'Actif',
+                'bg-danger': contrat.statut === 'Inactif',
+                'bg-warning': contrat.statut === 'Terminé'
+              }"
+              [style.width.%]="contrat.pourcentageAvancement" 
+              [attr.aria-valuenow]="contrat.pourcentageAvancement"   
+              aria-valuemin="0" 
+              aria-valuemax="100">
+              {{ contrat.pourcentageAvancement }}%
+            </div>
+          </div>
+        </td>
           <td>{{ contrat.description }}</td>
           <td>
             <button type="button" class="btn btn-danger btn-sm btn-rounded" (click)="onDelete(contrat.id)">

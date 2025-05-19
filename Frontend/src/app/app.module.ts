@@ -23,7 +23,7 @@ export function createTranslateLoader(http: HttpClient): any {
   ],
   imports: [
     BrowserModule,
-   
+
     BrowserAnimationsModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -41,8 +41,11 @@ export function createTranslateLoader(http: HttpClient): any {
     NgbTooltipModule,
     ScrollToModule.forRoot(),  
     NgbModule, 
-
-    ToastrModule.forRoot(),   
+   ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-left',
+      preventDuplicates: true,
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [{

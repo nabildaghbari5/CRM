@@ -12,4 +12,7 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 
     @Query("SELECT DISTINCT c FROM Client c JOIN Contrat ct ON ct.client = c")
     List<Client> findClientsWithContrats();
+
+    @Query("SELECT DISTINCT c.user.id FROM Client c JOIN c.contrats ctr")
+    List<Integer> findUserIdsWithContrats();
 }

@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ 
+  
   ],
   imports: [
     CommonModule,
@@ -27,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     UIModule,
     WidgetModule,
-    FullCalendarModule,
+    FullCalendarModule,    
     NgbNavModule,
     NgbTooltipModule,
     NgbCollapseModule,

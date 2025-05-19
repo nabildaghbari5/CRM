@@ -3,8 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommercialComponent } from './commercial/commercial.component';
 import { ClientComponent } from './client/client.component';
 import { ClientContratComponent } from './client-contrat/client-contrat.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  {
+    path:'tableau_bord', 
+    component:DashboardComponent
+   }, 
   {
     path:'commercial', 
     component:CommercialComponent

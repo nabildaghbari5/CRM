@@ -1,7 +1,12 @@
 
 export const MENU = {
     adminMenu: [
-      
+         {
+            id: 0,
+            label: 'Tableau de bord',
+            link: 'users/tableau_bord',   
+
+        }, 
 
         {
             id: 1,
@@ -45,6 +50,12 @@ export const MENU = {
             link: 'contrat-client', 
 
         },
+        {
+            id: 3,  
+            label: "Réclamations",
+            link: 'rendez-vous/reclamation-client', 
+
+        },
    
        
     
@@ -69,8 +80,15 @@ export const MENU = {
 
         {
             id: 3,
-            label: "Contrat terminé.",
+            label: "Contrat terminé",
             link: 'contrat-terminé',
+
+        },
+
+         {
+            id: 4,
+            label: "Suivi  réclamations",
+            link: 'rendez-vous/reclamation-commercial',
 
         },
 

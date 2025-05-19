@@ -29,7 +29,7 @@ export class AuthentificationService {
   }
 
 
-  getCurrentUserId(): string | null {
+  getCurrentUserId(): number | null {
     const userString = localStorage.getItem('UserConnected'); // on suppose que l'objet est stocké sous la clé 'user'
     if (userString) {
       const user = JSON.parse(userString);

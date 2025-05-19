@@ -14,4 +14,14 @@ Gestion des comptes :  comercial  + client => and admin
 
 champs de status du contrat sera un bar progress
 *******
-gestion reclamation coté client sera valider par commercial : en attende , en cours de traitement et valider.  
+gestion reclamation coté client sera valider par commercial : en attende , en cours de traitement et valider.
+
+/// **************************** 
+message des info login inscription *******
+
+************************************************
+Dashbord : 
+- nombre du prospect  - nombre des clients 
+-  ombre de contrat
+- montant terminée 
+- nombre de reclammation , nombre de reclmation par nombre/status 
